@@ -1,9 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { ReposComponent } from './repos/repos.component';
+
+
+const routes:Routes=[
+  {path:"submit",component:ReposComponent}
+]
 
 @NgModule({
   declarations: [
@@ -12,7 +18,8 @@ import { ReposComponent } from './repos/repos.component';
     ReposComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
