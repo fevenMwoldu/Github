@@ -1,25 +1,63 @@
-# {Application Name}
-#### {Brief description of application}, {Date of current version}
-#### By **{List of contributors}**
+# {Web App: A simple Github search app}
+
+#### {Brief description of application}, {Fri 7, June 2019}
+
+#### By **{Feven Moghes Weldu}**
+
 ## Description
-{This is a detailed description of your application, including its purpose and usage.  Give as much detail as needed to explain what the application does, and any other information you want users or other developers to have. }
+
+This project is a web app that uses GitHub API to provide a basic GitHub search facility. You can search by user or reporsitory names.
+
+## Live Web App
+
+Here is a working live demo:
+
+{GhPages Link}
+
 ## Setup/Installation Requirements
-* This is a great place
-* to list setup instructions
-* in a simple
-* easy-to-understand
-* format
-{Leave nothing to chance! You want it to be easy for potential users, employers and collaborators to run your app. Do I need to run a server? Do I need to install any dependencies? How should I set up my databases? Is there other code this app depends on?}
+
+1) clone the repository from GitHub
+
+$ git clone {GitHub repository URL}
+
+2) open termial and change to cloned repository 
+
+$ cd {repo-name}
+
+3) open project in VS Code
+
+$ code .
+
+4) run the app
+
+ng serve -o
+
+The app will open in a new browser.
+
 ## Known Bugs
-{Are there issues that have not yet been resolved that you want to let users know you know? Outline any issues that would impact use of your application. Share any workarounds that are in place. }
+
+No bugs identified yet. If you find a bug please give us your feedback using the contact details provided below.
+
 ## Technologies Used
-{Tell me about the languages and tools you used to create this app. Assume that I know you probably used HTML and CSS. If you did something really cool using only HTML, point that out.}
+
+1) Angular 7 and Angular CLI
+2) Bootstrap
+3) Typescript, HTML and CSS 
+4) GitHub API
+5) Node 8
+6) Visual Studio Code
+7) Ubuntu
+
 ## Support and contact details
-{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}
+
+Your feedback is welcome at Feven Weldu <feven.m.weldu@gmail.com>
+
+Contributions are also encouraged. Fork the GitHub repository to your own space, make your changes and send a pull request.
+
 ### License
 MIT License
 
-Copyright (c) [year] [fullname]
+Copyright (c) [2019] [Feven Moghes Weldu]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
