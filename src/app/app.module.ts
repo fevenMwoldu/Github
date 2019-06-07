@@ -8,7 +8,7 @@ import { ReposComponent } from './repos/repos.component';
 
 
 const routes:Routes=[
-  {path:"submit",component:ReposComponent}
+  {path:"Search",component:ReposComponent}
 ]
 
 @NgModule({
