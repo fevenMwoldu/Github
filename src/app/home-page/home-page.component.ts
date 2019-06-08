@@ -23,6 +23,7 @@ export class HomePageComponent implements OnInit {
       data => this.res = data
     );
   }
+  
 
   ngOnInit() {
   }

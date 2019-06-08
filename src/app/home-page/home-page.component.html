@@ -1,14 +1,32 @@
-<div class="form-group">
-    <input class="form-control" [(ngModel)]="search" id="input" placeholder="Enter name or repository">
+<div class="form-group" align=center>
+    <input class="form-control" [(ngModel)]="search" id="input" placeholder="Enter name or repository"><br>
     <button type="submit" class="btn btn-success" (click)="doSearch()">Search</button>
 </div>
 
 <div *ngIf="res">
     <span>Results: {{res.total_count}}</span>
 
-    <ul>
-        <li *ngFor="let user of res.items">{{user.login | uppercase}}</li>
-    </ul>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">User Name</th>
+                <th scope="col">List of Repositories</th>
+                <th scope="col">Profile Photos</th>
+
+
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of res.items">
+
+                <td>{{user.login | uppercase}}</td>
+                <td>{{user.repos_url}}</td>
+                <td><img src="{{user.avatar_url}} " alt="no image" height="100" width="100"> </td>
+
+            </tr>
+        </tbody>
+    </table>
+
 
 </div>
 

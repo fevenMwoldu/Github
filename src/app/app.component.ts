@@ -9,20 +9,8 @@ import { SearchResponse } from './search-response';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Github';
+  title = 'Github Search';
 
-  search: string;
-
-  res: SearchResponse;
-
-constructor(private http: HttpClient){}
-
-  doSearch(){
-    let url = 'https://api.github.com/search/users?q=' + this.search
-
-    this.http.get<SearchResponse>(url).subscribe(
-      data => this.res = data
-    );
-  }
+ 
 
 }
