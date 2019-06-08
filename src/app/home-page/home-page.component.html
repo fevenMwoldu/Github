@@ -1,8 +1,14 @@
 <div class="form-group">
+    <input class="form-control" [(ngModel)]="search" id="input" placeholder="Enter name or repository">
+    <button type="submit" class="btn btn-success" (click)="doSearch()">Search</button>
+</div>
 
-    <img src="../../assets/49692952.png" class="img-rounded" id="image" alt="no image" width="304" height="236"><br>
-    <input class="form-control" id="input" placeholder="Enter name or repository">
-    <button type="submit" class="btn btn-success" routerLink='/Search' routerLinkActive='active'>Search</button>
+<div *ngIf="res">
+    <span>Results: {{res.total_count}}</span>
+
+    <ul>
+        <li *ngFor="let user of res.items">{{user.login | uppercase}}</li>
+    </ul>
 
 </div>
 

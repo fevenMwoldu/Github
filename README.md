@@ -76,3 +76,44 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+## Notes
+
+### How to make API call using HttpClient
+
+1) Import ClientHttpModule in app.module.ts
+
+2) Inject HttpClient in component/service constructor where you need to make API call
+
+constructor(private http: HttpClient){}
+
+3) declare field to bind with input form
+
+search: string;
+
+4) generate classes to hold API result (number of classes to hold result depends on structure of JSON returned by API)
+
+ng generate class search-response
+
+ng generate class user
+
+5) declare field to hold result of API call
+
+res: SearchResponse;
+
+6) create method to make API call
+
+doSearch(): SearchResponse {
+
+}
+
+7) make API call
+
+doSearch(): SearchResponse {
+    // prepare API URL
+    url = '' + this.search
+    
+    // call API and store result
+    this.http.get<SearchResponse>(url)
+        .subscribe(data => this.res = data);
+}
