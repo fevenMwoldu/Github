@@ -13,21 +13,15 @@
                 <th scope="col">GitHub Page</th>
                 <th scope="col">Repositories</th>
                 <th scope="col">Profile Photos</th>
-
-
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let user of res.items">
-
-                <td>{{user.login | uppercase}}</td>
+                <td>{{user.login}}</td>
                 <td><a target="_blank" href="{{user.html_url}}">Open GitHub Page</a> </td>
                 <td><a target="_blank" href="{{user.html_url}}">Show Repositores</a> </td>
                 <td><img src="{{user.avatar_url}} " alt="no image" height="100" width="100"> </td>
-
             </tr>
         </tbody>
     </table>
-
-
 </div>
