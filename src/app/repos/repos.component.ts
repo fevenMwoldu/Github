@@ -25,13 +25,12 @@ export class ReposComponent implements OnInit {
   constructor(private http: HttpClient){}
 
   doSearch(){
-    let url = 'https://api.github.com/search/repositories?q=' + this.search
+    let url = `${environment.githubRepoSearchBaseUrl}${this.search}`
 
-    this.http.get<RepoSearchResponse>(url).subscribe(
+    this.http.get<RepoSearchResponse>(url, httpOptions).subscribe(
       data => this.res = data
     );
   }
-  
 
   ngOnInit() {
   }
