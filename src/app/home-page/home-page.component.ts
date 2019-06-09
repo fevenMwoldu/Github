@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User } from '../user';
 import { SearchResponse } from '../search-response';
 import { UserSearchService } from '../user-search.service';
+import { environment } from 'src/environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders ({
+    'Content-Type':  'application/json',
+    'Authorization': `${environment.githubUser}:${environment.githubToken}`
+  })
+};
 
 @Component({
   selector: 'app-home-page',
@@ -14,15 +22,18 @@ export class HomePageComponent implements OnInit {
   search: string;
   res: SearchResponse;
 
-  constructor(private userSearchService: UserSearchService){}
+  constructor(private userSearchService: UserSearchService, private http: HttpClient){}
 
   doSearch(){
-    this.res = this.userSearchService.searchUsers(this.search);
+    let url = `${environment.githubUserSearchBaseUrl}${this.search}`
+    
+    this.http.get<SearchResponse>(url, httpOptions).toPromise().then(data => {
+      this.res = data;
+    });
+    //this.res = this.userSearchService.searchUsers(this.search);
   }
   
   ngOnInit() {
   }
-
-
 }
 

@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { RepoSearchResponse } from '../repo-search-response';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+const httpOptions = {
+  headers: new HttpHeaders ({
+    'Content-Type':  'application/json',
+    'Authorization': `${environment.githubUser}:${environment.githubToken}`
+  })
+};
 
 @Component({
   selector: 'app-repos',
