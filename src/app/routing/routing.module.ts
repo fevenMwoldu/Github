@@ -1,10 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { RouterModule, Routes } from '@angular/router'
+
+import { ReposComponent } from '../repos/repos.component';
+import { HomePageComponent } from '../home-page/home-page.component';
+import { PageNotFoundComponent } from '../page-not-found/page-not-found.component';
+
+const routes:Routes=[
+  { path:"users", component: HomePageComponent },
+  { path:"repos", component: ReposComponent },
+  { path: '', redirectTo: '/users', pathMatch: 'full'},
+  { path: '**', component: PageNotFoundComponent}
+]
 
 @NgModule({
   imports: [
-    CommonModule
+    RouterModule.forRoot(routes, {enableTracing:true} )
   ],
-  declarations: []
+  exports: [
+    RouterModule
+  ]
 })
 export class RoutingModule { }
+

@@ -4,3 +4,7 @@
 #input {
     width: 200px
 }
+
+nav a.active {
+    color: red
+}

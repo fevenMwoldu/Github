@@ -10,7 +10,4 @@ import { SearchResponse } from './search-response';
 })
 export class AppComponent {
   title = 'Github Search';
-
- 
-
 }

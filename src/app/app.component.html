@@ -4,4 +4,9 @@
     </h1>
 </div>
 
-<app-home-page></app-home-page>
+<nav>
+    <a routerLink="/users" routerLinkActive="active">Users</a> |
+    <a routerLink="/repos" routerLinkActive="active">Repositories</a>
+</nav>
+
+<router-outlet></router-outlet>
