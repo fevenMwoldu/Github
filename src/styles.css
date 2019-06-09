@@ -1,10 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "~bootstrap/dist/css/bootstrap.css";
 #input {
-    width: 200px
+    width: 400px
 }
 
-nav a.active {
-    color: red
+.container-fluid {
+    margin-top: 50px;
 }
