@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RepoSearchResponse } from '../repo-search-response';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { RepoSearchService } from '../repo-search.service';
 
 const httpOptions = {
   headers: new HttpHeaders ({
@@ -17,19 +18,21 @@ const httpOptions = {
 })
 export class ReposComponent implements OnInit {
 
-
   search: string;
 
   res: RepoSearchResponse;
 
-  constructor(private http: HttpClient){}
+  constructor(private repoSearchService: RepoSearchService, private http: HttpClient){}
 
   doSearch(){
     let url = `${environment.githubRepoSearchBaseUrl}${this.search}`
 
-    this.http.get<RepoSearchResponse>(url, httpOptions).subscribe(
-      data => this.res = data
-    );
+    this.http.get<RepoSearchResponse>(url, httpOptions).toPromise().then( data => {
+     this.res = data;
+    });
+
+    //this.res = this.repoSearchService.searchRepos(this.search);
+
   }
 
   ngOnInit() {
