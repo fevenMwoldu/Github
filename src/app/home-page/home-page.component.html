@@ -6,7 +6,7 @@
     </div>
 
     <div *ngIf="res">
-        <span>Results: {{res.total_count}}</span>
+        <span>Results: {{res.total_count | fmtResults}}</span>
 
 
         <div class="card-columns">
