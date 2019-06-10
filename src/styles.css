@@ -43,3 +43,7 @@
 .container-fluid {
     margin-top: 50px;
 }
+
+h1.display-1 {
+    text-shadow: 2px 2px 8px #FF0000;
+}
