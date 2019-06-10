@@ -19,7 +19,7 @@ const httpOptions = {
 })
 export class HomePageComponent implements OnInit {
 
-  search: string = 'feven';
+  search: string;
   res: SearchResponse;
 
   constructor(private userSearchService: UserSearchService, private http: HttpClient){}
@@ -34,7 +34,6 @@ export class HomePageComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.doSearch('feven')
   }
 }
 

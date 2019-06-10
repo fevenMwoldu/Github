@@ -3,6 +3,7 @@ import { RepoSearchResponse } from '../repo-search-response';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { RepoSearchService } from '../repo-search.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 const httpOptions = {
   headers: new HttpHeaders ({
@@ -18,11 +19,15 @@ const httpOptions = {
 })
 export class ReposComponent implements OnInit {
 
-  search: string = 'fevenmwoldu/';
+  search: string;
 
   res: RepoSearchResponse;
 
-  constructor(private repoSearchService: RepoSearchService, private http: HttpClient){}
+  constructor(  
+    private route: ActivatedRoute,
+    private router: Router, 
+    private repoSearchService: RepoSearchService, 
+    private http: HttpClient){}
 
   doSearch(search: string){
     let url = `${environment.githubRepoSearchBaseUrl}${search}`
@@ -36,7 +41,12 @@ export class ReposComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.doSearch('fevenmwoldu/')
+    let username = this.route.snapshot.paramMap.get('username');
+
+    if(username != null){
+      this.search = username + '/';
+      this.doSearch(this.search);
+    } 
   }
 
 }

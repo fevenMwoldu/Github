@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from '../page-not-found/page-not-found.componen
 
 const routes:Routes=[
   { path:"users", component: HomePageComponent },
+  { path:"repos/:username", component: ReposComponent },
   { path:"repos", component: ReposComponent },
   { path: '', redirectTo: '/users', pathMatch: 'full'},
   { path: '**', component: PageNotFoundComponent}
