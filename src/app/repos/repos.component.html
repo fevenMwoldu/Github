@@ -1,8 +1,8 @@
 <div class="container-fluid">
 
     <div class="form-group" align="center">
-        <input type="text" class="form-control" [(ngModel)]="search" id="input" placeholder="Enter repository name ..."><br>
-        <button type="submit" class="btn btn-secondary" (click)="doSearch()" id="submit">Search</button>
+        <input type="text" class="form-control" (keyup.enter)="doSearch(search)" [(ngModel)]="search" id="input" placeholder="Enter repository name ..."><br>
+        <button type="submit" class="btn btn-secondary" (click)="doSearch(search)" id="submit">Search</button>
     </div>
 
     <div *ngIf="res">
@@ -12,18 +12,21 @@
         <div class="card-columns">
 
             <div class="card text-center" style=" width: 18rem; " *ngFor="let repo of res.items ">
-                <img src="{{repo.owner.avatar_url}} " alt="no image " height="100 " width="100 ">
+                <img class="img-thumbnail rounded-circle" src="{{repo.owner.avatar_url}} " alt="no image" height="100" width="100">
 
                 <div class="card-body ">
                     <a target="_blank" href="{{repo.html_url}}" class="card-title ">{{repo.name}}</a>
                     <p class="card-text">{{repo.description}}</p>
                 </div>
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item">{{repo.full_name}}</li>
-                    <li class="list-group-item">{{repo.owner.login}}</li>
                     <li class="list-group-item">
+                        <a target="_blank" href="{{repo.owner.html_url}}" class="card-title ">
+                            {{repo.owner.login}}
+                        </a>
+                    </li>
+                    <li class="list-group-item" *ngIf="repo.homepage">
                         <a target="_blank" href="{{repo.homepage}}" class="card-title ">
-                        Home Page
+                            Live Demo Page
                         </a>
                     </li>
                 </ul>

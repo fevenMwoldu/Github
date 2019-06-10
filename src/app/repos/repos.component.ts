@@ -18,14 +18,14 @@ const httpOptions = {
 })
 export class ReposComponent implements OnInit {
 
-  search: string;
+  search: string = 'fevenmwoldu/';
 
   res: RepoSearchResponse;
 
   constructor(private repoSearchService: RepoSearchService, private http: HttpClient){}
 
-  doSearch(){
-    let url = `${environment.githubRepoSearchBaseUrl}${this.search}`
+  doSearch(search: string){
+    let url = `${environment.githubRepoSearchBaseUrl}${search}`
 
     this.http.get<RepoSearchResponse>(url, httpOptions).toPromise().then( data => {
      this.res = data;
@@ -36,6 +36,7 @@ export class ReposComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.doSearch('fevenmwoldu/')
   }
 
 }

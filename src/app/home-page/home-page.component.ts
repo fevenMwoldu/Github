@@ -19,12 +19,12 @@ const httpOptions = {
 })
 export class HomePageComponent implements OnInit {
 
-  search: string;
+  search: string = 'feven';
   res: SearchResponse;
 
   constructor(private userSearchService: UserSearchService, private http: HttpClient){}
 
-  doSearch(){
+  doSearch(search: string){
     let url = `${environment.githubUserSearchBaseUrl}${this.search}`
     
     this.http.get<SearchResponse>(url, httpOptions).toPromise().then(data => {
@@ -34,6 +34,7 @@ export class HomePageComponent implements OnInit {
   }
   
   ngOnInit() {
+    this.doSearch('feven')
   }
 }
 
