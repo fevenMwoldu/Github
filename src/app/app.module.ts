@@ -11,7 +11,8 @@ import { ReposComponent } from './repos/repos.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 
 import { RoutingModule } from './routing/routing.module';
-import { FmtResultsPipe } from './fmt-results.pipe'
+import { FmtResultsPipe } from './fmt-results.pipe';
+import { ShadowDirective } from './shadow.directive'
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FmtResultsPipe } from './fmt-results.pipe'
     HomePageComponent,
     ReposComponent,
     PageNotFoundComponent,
-    FmtResultsPipe
+    FmtResultsPipe,
+    ShadowDirective
   ],
   imports: [
     BrowserModule,
