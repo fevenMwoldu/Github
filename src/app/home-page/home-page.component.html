@@ -1,8 +1,8 @@
 <div class="container-fluid">
 
     <div class="form-group" align="center">
-        <input class="form-control" [(ngModel)]="search" id="input" placeholder="Enter username ..."><br>
-        <button type="submit" class="btn btn-primary" (click)="doSearch()">Search</button>
+        <input type="text" class="form-control" [(ngModel)]="search" id="input" placeholder="Enter username ..."><br>
+        <button type="submit" class="btn btn-secondary" (click)="doSearch()" id="submit">Search</button>
     </div>
 
     <div *ngIf="res">
