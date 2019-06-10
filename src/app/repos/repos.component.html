@@ -13,14 +13,21 @@
 
             <div class="card text-center" style=" width: 18rem; " *ngFor="let repo of res.items ">
                 <img src="{{repo.owner.avatar_url}} " alt="no image " height="100 " width="100 ">
+
                 <div class="card-body ">
-                    <h5 class="card-title ">{{repo.full_name}}</h5>
+                    <a target="_blank" href="{{repo.html_url}}" class="card-title ">{{repo.name}}</a>
+                    <p class="card-text">{{repo.description}}</p>
                 </div>
-                <ul class="list-group list-group-flush ">
-                    <li class="list-group-item "><a target="_blank" href="{{repo.html_url}}" class="btn btn-secondary card-link ">GitHub Page</a></li>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">{{repo.full_name}}</li>
+                    <li class="list-group-item">{{repo.owner.login}}</li>
+                    <li class="list-group-item">
+                        <a target="_blank" href="{{repo.homepage}}" class="card-title ">
+                        Home Page
+                        </a>
+                    </li>
                 </ul>
             </div>
-
         </div>
 
     </div>
